@@ -93,10 +93,9 @@
 //     const y = a * (Math.sin(2 * tt) / 2);
 //     return { x, y };
 //   }
-  function pathPoint(tt, a) {
-    // a: horizontal scale
-    const x = a * Math.sin(tt);       // wider horizontally
-    const y = a * 0.8 * Math.sin(2*tt)/2; // make vertical loops more circular
+function pathPoint(tt, a) {
+    const x = a * Math.sin(tt);       // horizontal amplitude
+    const y = a * Math.sin(2*tt)/2;  // vertical amplitude closer to horizontal
     return { x, y };
 }
 
@@ -146,7 +145,7 @@
     const centerY = canvas.height / DPR / 2;
     // scale relative to smaller dimension
     const minSide = Math.min(canvas.width/DPR, canvas.height/DPR);
-    const amplitude = minSide * 0.32; // figure-eight size
+    const amplitude = minSide * 0.45; // figure-eight size
     // increment t based on speed (parametric)
     t += dt * (0.8 * params.speed);
 
@@ -260,3 +259,4 @@
 </script>
 </body>
 </html>
+
